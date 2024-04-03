@@ -12,7 +12,8 @@ http://localhost:8080/h2-console
 ![image](https://github.com/CarlosQuinteroVelez/assessment_REST/assets/157841256/7480163e-d9e4-4f2e-873b-470c1a797c21)
 User: sa
 Pass: password
- una vez authenticado se accede a la consola donde se pueden ejecutar consultas SQL.
+una vez authenticado se accede a la consola donde se pueden ejecutar consultas SQL.
+![image](https://github.com/CarlosQuinteroVelez/assessment_REST/assets/157841256/7037b6df-11b5-4c1a-9d45-995879516810)
 
 usando las siguientes querys se puede comprobar que los datos están siendo guardados correctamente:
 
@@ -23,8 +24,10 @@ una vez ejecutadas las querys se puede ver los usuarios agregados por medio de u
 ![image](https://github.com/CarlosQuinteroVelez/assessment_REST/assets/157841256/ef1ae118-41c2-4b02-8241-99e7f08aa8da)
 
 
-EndPoints exxamples:
+EndPoints examples:
 *************************************************************
+POST
+```
 POST http://localhost:8080/users
 Content-Type: application/json
 
@@ -45,16 +48,21 @@ Content-Type: application/json
     }
   ]
 }
-
+```
 *************************************************************
+GET
+```
 GET http://localhost:8080/users/id
+```
 *************************************************************
+DELETE
+```
 DELETE http://localhost:8080/users/id
+```
 *************************************************************
-
-
-Con 1 como ID
-UT http://localhost:8080/users/1
+UPDATE
+```
+PUT http://localhost:8080/users/1
 Content-Type: application/json
 
 {
@@ -76,4 +84,5 @@ Content-Type: application/json
     }
   ]
 }
+```
 *************************************************************

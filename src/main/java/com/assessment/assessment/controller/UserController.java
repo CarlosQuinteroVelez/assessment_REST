@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 @RestController
@@ -68,7 +69,13 @@ public class UserController {
         User user = userService.getUserById(id);
         if (user != null) {
 
-            UserResponse response = new UserResponse("Usuario obtenido exitosamente", user);
+            Map<String, Object> userMap = new LinkedHashMap<>();
+            userMap.put("id", user.getId());
+            userMap.put("name", user.getName());
+            userMap.put("email", user.getEmail());
+            Map<String, Object> response = new LinkedHashMap<>();
+            response.put("mensaje", "Usuario obtenido exitosamente");
+            response.put("user", userMap);
             return ResponseEntity.ok().body(response);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"mensaje\": \"El usuario con el ID proporcionado no existe\"}");

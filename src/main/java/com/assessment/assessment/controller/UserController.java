@@ -88,6 +88,8 @@ public class UserController {
     public ResponseEntity<Object> updateUser(@PathVariable long id, @RequestBody User user) {
         if (userService.existsById(id)) {
             user.setId(id);
+            user.setModified(LocalDateTime.now());
+            user.setLastLogin(LocalDateTime.now());
             userService.updateUser(user);
             return ResponseEntity.ok().body("{\"mensaje\": \"Usuario actualizado exitosamente\"}");
 

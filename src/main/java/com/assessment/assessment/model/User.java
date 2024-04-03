@@ -1,5 +1,6 @@
 package com.assessment.assessment.model;
 
+import com.assessment.assessment.model.helpers.PasswordEncoder;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -46,7 +47,7 @@ public class User implements Serializable {
                 @JsonProperty("phones") List<Phones> phones) {
         this.name = name;
         this.email = email;
-        this.password=password;
+        this.password= PasswordEncoder.encode(password);
         this.phones = phones != null ? phones : new ArrayList<>();
     }//*/
 

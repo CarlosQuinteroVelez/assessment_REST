@@ -8,6 +8,9 @@ class AssessmentApplicationTests {
 
 	@Test
 	void contextLoads() {
+		PhonesTest phonesTest = new PhonesTest();
+		UserTest userTest = new UserTest();
+
 	}
 
 }
